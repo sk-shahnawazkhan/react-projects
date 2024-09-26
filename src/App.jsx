@@ -1,9 +1,10 @@
 import React from "react";
+import ToggleTheme from "./components/ThemeSelector/ToggleTheme";
 
 function App() {
   return (
     <>
-      <p>App component rendred!</p>
+      <ToggleTheme />
     </>
   );
 }

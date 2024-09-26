@@ -1,0 +1,63 @@
+.header {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 20px 30px;
+}
+.lightHeader {
+  background-color: #f5f5f5;
+}
+
+.darkHeader {
+  background-color: #1e1e1e;
+}
+
+.themeLightHeader {
+  composes: header lightHeader;
+}
+
+.themeDarkHeader {
+  composes: header darkHeader;
+}
+
+.section {
+  height: calc(100vh - 90px);
+  padding: 50px;
+  text-align: center;
+}
+
+.lightSection {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.darkSection {
+  background-color: #0a0a0a;
+  color: #f5f5f5;
+}
+
+.themeLightSection {
+  composes: section lightSection;
+}
+
+.themeDarkSection {
+  composes: section darkSection;
+}
+
+.button {
+  width: auto;
+  height: auto;
+  padding: 15px;
+  background-color: #236868;
+  color: #ffffff;
+  border: 1px solid #4fbcbc;
+  border-radius: 5px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #134848;
+}
