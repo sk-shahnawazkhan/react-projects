@@ -1,10 +1,15 @@
 import React from "react";
-import ToggleTheme from "./components/ThemeSelector/ToggleTheme";
+import ToggleTheme from "./components/Themes/ToggleTheme";
+import ThemeSelection from "./components/Themes/ThemeSelection";
 
 function App() {
   return (
     <>
-      <ToggleTheme />
+      {/* Toggle theme component */}
+      {/* <ToggleTheme /> */}
+
+      {/* Theme slection component  */}
+      <ThemeSelection />
     </>
   );
 }

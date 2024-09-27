@@ -8,28 +8,16 @@ function ToggleTheme() {
   }
   return (
     <>
-      {/* also use style from module css like this */}
-      {/* <header className={`${styles.header} ${
-          themeLight ? styles.lightHeader : styles.darkHeader
-        }`}> */}
-      <header
-        className={
-          themeLight
-            ? `${styles.header} ${styles.lightHeader}`
-            : styles.themeDarkHeader
-        }
-      >
+      <header className={themeLight ? styles.lightHeader : styles.darkHeader}>
         <button className={styles.button} onClick={handleClick}>
           {themeLight ? "Switch to Dark" : "Back to Light"} Theme
         </button>
       </header>
       <main>
         <section
-          className={
-            themeLight ? styles.themeLightSection : styles.themeDarkSection
-          }
+          className={themeLight ? styles.lightSection : styles.darkSection}
         >
-          <h1>{themeLight ? "Light" : "Dark"} Theme Applied</h1>
+          <h1>{themeLight ? "Light" : "Dark"} theme Applied</h1>
         </section>
       </main>
     </>

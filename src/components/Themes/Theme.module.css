@@ -6,20 +6,31 @@
   align-items: center;
   padding: 20px 30px;
 }
+
 .lightHeader {
+  composes: header;
   background-color: #f5f5f5;
 }
 
 .darkHeader {
+  composes: header;
   background-color: #1e1e1e;
+  color: #ffffff;
 }
 
-.themeLightHeader {
-  composes: header lightHeader;
+.turquoiseHeader {
+  composes: header;
+  background-color: #40e0d0;
 }
 
-.themeDarkHeader {
-  composes: header darkHeader;
+.bisqueHeader {
+  composes: header;
+  background-color: #ffe4c4;
+}
+
+.plumHeader {
+  composes: header;
+  background-color: #dda0dd;
 }
 
 .section {
@@ -29,21 +40,30 @@
 }
 
 .lightSection {
+  composes: section;
   background-color: #ffffff;
   color: #000000;
 }
 
 .darkSection {
+  composes: section;
   background-color: #0a0a0a;
   color: #f5f5f5;
 }
 
-.themeLightSection {
-  composes: section lightSection;
+.turquoiseSection {
+  composes: section;
+  background-color: #4cf1e1;
 }
 
-.themeDarkSection {
-  composes: section darkSection;
+.bisqueSection {
+  composes: section;
+  background-color: #fff0df;
+}
+
+.plumSection {
+  composes: section;
+  background-color: #f1b6f1;
 }
 
 .button {
