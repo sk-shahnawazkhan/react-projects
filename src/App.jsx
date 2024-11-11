@@ -1,6 +1,7 @@
 import React from "react";
 import ToggleTheme from "./components/Themes/ToggleTheme";
 import ThemeSelection from "./components/Themes/ThemeSelection";
+import RenderImage from "./components/GetImage/RenderImage";
 
 function App() {
   return (
@@ -9,7 +10,10 @@ function App() {
       {/* <ToggleTheme /> */}
 
       {/* Theme slection component  */}
-      <ThemeSelection />
+      {/* <ThemeSelection /> */}
+
+      {/* Get Random Image */}
+      <RenderImage />
     </>
   );
 }

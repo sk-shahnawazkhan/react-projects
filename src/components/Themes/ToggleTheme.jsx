@@ -1,5 +1,6 @@
 import React from "react";
 import styles from "./Theme.module.css";
+import ToggleThemeHeader from "./ToggleThemeHeader";
 
 function ToggleTheme() {
   const [themeLight, setThemeLight] = React.useState(true);
@@ -8,11 +9,7 @@ function ToggleTheme() {
   }
   return (
     <>
-      <header className={themeLight ? styles.lightHeader : styles.darkHeader}>
-        <button className={styles.button} onClick={handleClick}>
-          {themeLight ? "Switch to Dark" : "Back to Light"} Theme
-        </button>
-      </header>
+      <ToggleThemeHeader handleClick={handleClick} themeLight={themeLight} />
       <main>
         <section
           className={themeLight ? styles.lightSection : styles.darkSection}
