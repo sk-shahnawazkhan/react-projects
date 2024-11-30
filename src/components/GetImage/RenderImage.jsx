@@ -3,11 +3,11 @@ import Header from "../Header/Header";
 import styles from "./GetImage.module.css";
 
 function RenderImage() {
-  const [caption, setCaption] = React.useState("Image caption");
-  const [imageTitle, setImageTitle] = React.useState("Title");
-  const [image, setImage] = React.useState(
-    "https://images.unsplash.com/photo-1417325384643-aac51acc9e5d"
-  );
+  const [image, setImage] = React.useState({
+    caption: "Image caption needed",
+    title: "Title",
+    showImage: "https://images.unsplash.com/photo-1417325384643-aac51acc9e5d",
+  });
 
   const [allImages, setAllImages] = React.useState([]);
 
@@ -18,7 +18,6 @@ function RenderImage() {
       );
       const data = await res.json();
       setAllImages(data);
-      console.log("data is something - " + data);
     }
     getImages();
   }, []);
@@ -26,37 +25,45 @@ function RenderImage() {
   function getNewImage() {
     const randomNumber = Math.floor(Math.random() * allImages.length);
     let imgUrl = allImages[randomNumber].urls.raw;
-    setImage(imgUrl);
+    setImage((prevState) => ({
+      ...prevState,
+      showImage: imgUrl,
+    }));
   }
 
   // function downloadImage() {}
 
   const downloadImage = async () => {
-    const originalImage =
-      "https://images.unsplash.com/photo-1732692699579-592f37bf4cdf";
-    const image = await fetch(originalImage);
+    const originalImage = image.showImage.split("?")[0];
+    const imageLink = await fetch(originalImage);
+    console.log(imageLink);
 
     // Split image name
     const fileName = originalImage.split("/").pop();
 
-    const imageBlog = await image.blob();
+    const imageBlog = await imageLink.blob();
     const imageURL = URL.createObjectURL(imageBlog);
     const link = document.createElement("a");
     link.href = imageURL;
-    link.setAttribute("download", fileName);
-    // link.download = fileName;
+    link.setAttribute("download", fileName); // link.download = fileName;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
   function handleAddCaption() {
-    setCaption(txtAreaCaption.value);
-    txtAreaCaption.value = "";
+    setImage((prevState) => ({
+      ...prevState,
+      caption: txtAreaCaption.value,
+    }));
+    // txtAreaCaption.value = "";
   }
 
   function handleChange(event) {
-    setImageTitle(event.target.value);
+    setImage((prevState) => ({
+      ...prevState,
+      title: event.target.value,
+    }));
   }
 
   return (
@@ -65,10 +72,15 @@ function RenderImage() {
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <figure>
-            <img src={image} alt="Image" width={"100%"} height={"500px"} />
+            <img
+              src={image.showImage}
+              alt="Image"
+              width={"100%"}
+              height={"500px"}
+            />
             <figcaption>
-              <h4>{imageTitle}</h4>
-              {caption}
+              <h4>{image.title}</h4>
+              {image.caption}
             </figcaption>
           </figure>
         </div>
