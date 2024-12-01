@@ -4,7 +4,7 @@ import styles from "./GetImage.module.css";
 
 function RenderImage() {
   const [image, setImage] = React.useState({
-    caption: "Image caption needed",
+    caption: "Image caption",
     title: "Title",
     showImage: "https://images.unsplash.com/photo-1417325384643-aac51acc9e5d",
   });
