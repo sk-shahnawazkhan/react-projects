@@ -1,7 +1,8 @@
 import React from "react";
 import ToggleTheme from "./components/Themes/ToggleTheme";
 import ThemeSelection from "./components/Themes/ThemeSelection";
-import RenderImage from "./components/GetImage/RenderImage";
+import RandomImage from "./components/RandomImage/RandomImage";
+import ImageSearch from "./components/ImageSearch/ImageSearch";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       {/* <ThemeSelection /> */}
 
       {/* Get Random Image */}
-      <RenderImage />
+      <RandomImage />
+      {/* <ImageSearch /> */}
     </>
   );
 }

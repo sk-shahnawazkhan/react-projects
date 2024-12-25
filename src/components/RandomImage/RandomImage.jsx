@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../Header/Header";
-import styles from "./GetImage.module.css";
+import styles from "./RandomImage.module.css";
 
-function RenderImage() {
+const RandomImage = () => {
   const [image, setImage] = React.useState({
     caption: "Image caption",
     title: "Title",
@@ -11,10 +11,12 @@ function RenderImage() {
 
   const [allImages, setAllImages] = React.useState([]);
 
+  const apiKey = import.meta.env.VITE_API_KEY;
+
   React.useEffect(() => {
     async function getImages() {
       const res = await fetch(
-        "https://api.unsplash.com/photos?client_id=93mldwc8Ed5Xg0HIabGHlR7s034J2gCqhyHM75GaUhE"
+        `https://api.unsplash.com/photos?client_id=${apiKey}`
       );
       const data = await res.json();
       setAllImages(data);
@@ -118,6 +120,6 @@ function RenderImage() {
       </div>
     </>
   );
-}
+};
 
-export default RenderImage;
+export default RandomImage;
