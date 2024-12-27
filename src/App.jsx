@@ -14,8 +14,8 @@ function App() {
       {/* <ThemeSelection /> */}
 
       {/* Get Random Image */}
-      <RandomImage />
-      {/* <ImageSearch /> */}
+      {/* <RandomImage /> */}
+      <ImageSearch />
     </>
   );
 }

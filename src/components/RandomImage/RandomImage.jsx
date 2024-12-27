@@ -70,7 +70,7 @@ const RandomImage = () => {
 
   return (
     <>
-      <Header />
+      <Header title="Get Random Image" />
       <div className={styles.container}>
         <div className={styles.leftContainer}>
           <figure>
