@@ -35,6 +35,11 @@
   vertical-align: middle;
 }
 
+.errorText {
+  font-size: 1.25rem;
+  color: #eb1111;
+}
+
 @media screen and (max-width: 767px) {
   .item img {
     margin-bottom: 10px;

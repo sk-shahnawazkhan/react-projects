@@ -4,43 +4,49 @@ import styles from "./ImageSearch.module.css";
 
 const ImageSearch = () => {
   const [imageTitle, setImageTitle] = useState("");
-  const [images, setImages] = useState([]);
+  const [renderImages, setRenderImages] = useState([]);
+  const [hasNoImages, setHasNoImages] = useState(false);
 
   const apiKey = import.meta.env.VITE_API_KEY;
 
   useEffect(() => {
     async function getImages() {
       const res = await fetch(
-        `https://api.unsplash.com/photos?client_id=${apiKey}&per_page=33`
+        `https://api.unsplash.com/photos?client_id=${apiKey}&per_page=30`
       );
       const data = await res.json();
-      setImages(data);
+      setRenderImages(data);
     }
     getImages();
   }, []);
 
-  // https://api.unsplash.com/photos?client_id=${apiKey}&per_page=33
-  // https://api.unsplash.com/search/photos?query=dubai&client_id=${apiKey}
-
-  // const renderImages = images.map((item) => {
+  // const renderImages = renderImages.map((item) => {
   //   return <img src={item.urls.small} alt="" width="100px" height="100px" />;
   // });
-
-  async function handleSearch() {
-    const res = await fetch(
-      `https://api.unsplash.com/search/photos?query=${imageTitle}&client_id=${apiKey}&per_page=33`
-    );
-    const data = await res.json();
-    setImages(data.results);
-  }
 
   function handleChange(event) {
     setImageTitle(event.target.value);
   }
 
+  function handleSearch() {
+    getSearchedImages();
+  }
+
+  const getSearchedImages = async () => {
+    const res = await fetch(
+      `https://api.unsplash.com/search/photos?query=${imageTitle}&client_id=${apiKey}&per_page=9`
+    );
+    const data = await res.json();
+    setRenderImages(data.results);
+    setHasNoImages(false);
+    if (data.results.length === 0) {
+      setHasNoImages(true);
+    }
+  };
+
   return (
     <>
-      <Header title="Search Your Image" />
+      <Header title="Find Your Image" />
       <div className={styles.container}>
         <div className={styles.searchBox}>
           <input
@@ -57,8 +63,8 @@ const ImageSearch = () => {
           </button>
         </div>
         <div className={styles.photosContainer}>
-          {images.length > 0 &&
-            images.map((item) => {
+          {renderImages.length > 0 &&
+            renderImages.map((item) => {
               return (
                 <div className={styles.item} key={item.id}>
                   <img
@@ -71,6 +77,11 @@ const ImageSearch = () => {
                 </div>
               );
             })}
+          {hasNoImages && (
+            <div className={styles.errorText}>
+              No images found. Please search again.
+            </div>
+          )}
         </div>
       </div>
     </>
