@@ -7,7 +7,7 @@ const ImageSearch = () => {
   const [renderImages, setRenderImages] = useState([]);
   const [hasNoImages, setHasNoImages] = useState(false);
 
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY_IMGSEARCH;
 
   useEffect(() => {
     async function getImages() {

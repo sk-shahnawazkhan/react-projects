@@ -11,7 +11,7 @@ const RandomImage = () => {
 
   const [allImages, setAllImages] = React.useState([]);
 
-  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY_RANDOMIMAGE;
 
   React.useEffect(() => {
     async function getImages() {
