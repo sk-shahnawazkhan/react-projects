@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import Header from "../Header/Header";
-import styles from "./SearchImage.module.css";
+import styles from "./ImageSearch.module.css";
 
-const SearchImage = () => {
+const ImageSearch = () => {
   const [imageTitle, setImageTitle] = useState("");
   const [renderImages, setRenderImages] = useState([]);
   const [hasNoImages, setHasNoImages] = useState(false);
 
-  const apiKey = import.meta.env.VITE_SEARCHIMAGE_KEY;
+  const apiKey = import.meta.env.VITE_IMAGESEARCH_KEY;
 
   useEffect(() => {
     async function getImages() {
@@ -88,4 +88,4 @@ const SearchImage = () => {
   );
 };
 
-export default SearchImage;
+export default ImageSearch;
