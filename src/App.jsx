@@ -2,7 +2,7 @@ import React from "react";
 import ToggleTheme from "./components/Themes/ToggleTheme";
 import ThemeSelection from "./components/Themes/ThemeSelection";
 import RandomImage from "./components/RandomImage/RandomImage";
-import ImageSearch from "./components/ImageSearch/ImageSearch";
+import SearchImage from "./components/SearchImage/SearchImage";
 
 function App() {
   return (
@@ -15,7 +15,9 @@ function App() {
 
       {/* Get Random Image */}
       {/* <RandomImage /> */}
-      <ImageSearch />
+
+      {/* Search for images */}
+      <SearchImage />
     </>
   );
 }
